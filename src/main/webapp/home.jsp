@@ -13,8 +13,7 @@
 
     <style>
 
-    /* CSS WILL GO HERE */
-    /*==========================
+/*==========================
     GOOGLE FONT
 ===========================*/
 
@@ -48,7 +47,7 @@ body{
 header{
 
     width:100%;
-    height:90px;
+    min-height:100px;
 
     background:#fff;
 
@@ -56,7 +55,7 @@ header{
     justify-content:space-between;
     align-items:center;
 
-    padding:0 80px;
+    padding:15px 70px;
 
     position:sticky;
     top:0;
@@ -67,34 +66,70 @@ header{
 
 }
 
+/*==========================
+      LOGO
+===========================*/
+
 .logo{
 
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:18px;
 
 }
 
 .logo img{
 
-    width:60px;
+    width:85px;
+    height:85px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:3px solid #2E7D32;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+
+    transition:.4s;
+
+}
+
+.logo img:hover{
+
+    transform:scale(1.08);
 
 }
 
 .logo-text h2{
 
+    margin:0;
+
     color:#2E7D32;
-    font-size:30px;
+
+    font-size:42px;
+
     font-weight:700;
+
+    line-height:1.1;
 
 }
 
 .logo-text p{
 
-    color:#777;
-    font-size:14px;
+    margin-top:5px;
+
+    color:#666;
+
+    font-size:18px;
+
+    font-weight:500;
 
 }
+
+/*==========================
+      NAVIGATION
+===========================*/
 
 nav ul{
 
@@ -104,12 +139,18 @@ nav ul{
 
 }
 
+nav ul li{
+
+    list-style:none;
+
+}
+
 nav ul li a{
 
     text-decoration:none;
     color:#333;
     font-size:18px;
-    font-weight:500;
+    font-weight:600;
     transition:.3s;
 
 }
@@ -126,6 +167,10 @@ nav ul li a:hover{
 
 }
 
+/*==========================
+      LOGIN BUTTON
+===========================*/
+
 .login-btn{
 
     text-decoration:none;
@@ -136,7 +181,9 @@ nav ul li a:hover{
 
     padding:12px 28px;
 
-    border-radius:10px;
+    border-radius:12px;
+
+    font-size:18px;
 
     font-weight:600;
 
@@ -147,6 +194,7 @@ nav ul li a:hover{
 .login-btn:hover{
 
     background:#2E7D32;
+
     color:white;
 
 }
@@ -201,11 +249,8 @@ nav ul li a:hover{
 .hero-left p{
 
     font-size:20px;
-
     line-height:35px;
-
     color:#666;
-
     margin-bottom:40px;
 
 }
@@ -690,7 +735,7 @@ nav ul{
 
     <div class="logo">
 
-        <img src="https://static.vecteezy.com/system/resources/previews/071/129/389/large_2x/farmers-shaking-hands-at-local-market-after-successful-deal-photo.jpg" alt="Logo">
+        <img src="images/logo1.png" alt="Logo">
 
         <div class="logo-text">
 
@@ -807,7 +852,7 @@ nav ul{
 
     <div class="hero-right">
 
-        <img src="images/farmer.png" alt="Farmer">
+        <img src="images/fam-buy.png" alt="Farmer">
 
     </div>
 
