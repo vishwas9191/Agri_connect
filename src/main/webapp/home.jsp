@@ -2,26 +2,34 @@
     pageEncoding="UTF-8"%>
 
 
+
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>AgriConnect</title>
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<meta charset="UTF-8">
 
-    <style>
+<title>AgriConnect</title>
 
-/*==========================
-    GOOGLE FONT
-===========================*/
+<!-- Google Font -->
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-/*==========================
-      GLOBAL
-===========================*/
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+/*======================================================
+                    GLOBAL
+======================================================*/
 
 *{
     margin:0;
@@ -30,128 +38,99 @@
     font-family:'Poppins',sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    background:#f5fff6;
-    color:#222;
-    overflow-x:hidden;
+
+    background:#F7FBF4;
+
 }
 
-/*==========================
-      NAVBAR
-===========================*/
+/*======================================================
+                    HEADER
+======================================================*/
 
 header{
 
     width:100%;
-    min-height:100px;
 
-    background:#fff;
+    height:90px;
+
+    background:white;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    padding:15px 70px;
+    padding:0 70px;
 
-    position:sticky;
-    top:0;
-
-    z-index:1000;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 
 }
 
-/*==========================
-      LOGO
-===========================*/
+/*===================== LOGO =====================*/
 
 .logo{
 
     display:flex;
+
     align-items:center;
+
     gap:18px;
 
 }
 
 .logo img{
 
-    width:85px;
-    height:85px;
+    width:100px;
+
+    height:100px;
 
     object-fit:cover;
 
     border-radius:50%;
 
-    border:3px solid #2E7D32;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.18);
-
-    transition:.4s;
-
-}
-
-.logo img:hover{
-
-    transform:scale(1.08);
+    margin-right:15px;
 
 }
 
 .logo-text h2{
 
-    margin:0;
-
     color:#2E7D32;
 
-    font-size:42px;
-
-    font-weight:700;
-
-    line-height:1.1;
+    font-size:40px;
 
 }
 
 .logo-text p{
 
-    margin-top:5px;
-
     color:#666;
 
-    font-size:18px;
-
-    font-weight:500;
+    font-size:17px;
 
 }
 
-/*==========================
-      NAVIGATION
-===========================*/
+/*===================== MENU =====================*/
 
 nav ul{
 
     display:flex;
+
     list-style:none;
+
     gap:45px;
-
-}
-
-nav ul li{
-
-    list-style:none;
 
 }
 
 nav ul li a{
 
     text-decoration:none;
+
     color:#333;
+
     font-size:18px;
+
     font-weight:600;
-    transition:.3s;
 
 }
 
@@ -161,37 +140,33 @@ nav ul li a:hover{
 
 }
 
-.active{
+/*===================== BUTTONS =====================*/
 
-    color:#2E7D32;
+.buttons{
+
+    display:flex;
+
+    gap:15px;
 
 }
 
-/*==========================
-      LOGIN BUTTON
-===========================*/
+.login{
 
-.login-btn{
-
-    text-decoration:none;
-
-    color:#2E7D32;
+    padding:12px 30px;
 
     border:2px solid #2E7D32;
 
-    padding:12px 28px;
+    border-radius:10px;
 
-    border-radius:12px;
+    color:#2E7D32;
 
-    font-size:18px;
+    text-decoration:none;
 
     font-weight:600;
 
-    transition:.4s;
-
 }
 
-.login-btn:hover{
+.login:hover{
 
     background:#2E7D32;
 
@@ -199,155 +174,121 @@ nav ul li a:hover{
 
 }
 
-/*==========================
-      HERO SECTION
-===========================*/
+.register{
+
+    padding:12px 30px;
+
+    background:#2E7D32;
+
+    border-radius:10px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.register:hover{
+
+    background:#1B5E20;
+
+}
+
+
+
+
+
+
+
+/*======================================================
+                    HERO SECTION
+======================================================*/
 
 .hero{
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    min-height:90vh;
+    padding:60px 70px;
 
-    padding:70px 80px;
+    background:linear-gradient(to right,#F7FBF4,#EEF8EC);
 
 }
 
+/*===================== LEFT =====================*/
+
 .hero-left{
 
-    width:52%;
+    width:50%;
 
 }
 
 .hero-left h1{
 
-    font-size:70px;
+    font-size:72px;
+
     line-height:85px;
-    margin-bottom:20px;
+
+    color:#222;
+
+    margin-bottom:25px;
+
+    font-weight:700;
 
 }
 
-.hero-left span{
+.hero-left h1 span{
+
+    display:block;
 
     color:#2E7D32;
 
 }
 
-.line{
-
-    width:180px;
-    height:5px;
-    background:#2E7D32;
-    border-radius:50px;
-
-    margin-bottom:30px;
-
-}
-
 .hero-left p{
 
-    font-size:20px;
-    line-height:35px;
+    font-size:22px;
+
     color:#666;
-    margin-bottom:40px;
+
+    line-height:40px;
+
+    margin-bottom:45px;
 
 }
 
-/*part-2*/
-/*==========================
-      FEATURES
-===========================*/
+/*===================== BUTTONS =====================*/
 
-.features{
+.hero-buttons{
 
     display:flex;
-    gap:20px;
-    margin-bottom:50px;
-    flex-wrap:wrap;
 
-}
-
-.feature{
-
-    background:#fff;
-
-    padding:18px 22px;
-
-    border-radius:15px;
-
-    display:flex;
-    align-items:center;
-
-    gap:12px;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-    transition:.4s;
-
-}
-
-.feature:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.feature i{
-
-    width:50px;
-    height:50px;
-
-    background:#2E7D32;
-
-    color:white;
-
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:20px;
-
-}
-
-.feature span{
-
-    font-size:17px;
-    font-weight:600;
-
-}
-
-/*==========================
-      BUTTONS
-===========================*/
-
-.buttons{
-
-    display:flex;
     gap:25px;
 
 }
 
 .start-btn{
 
-    text-decoration:none;
-
     background:#2E7D32;
 
     color:white;
 
-    padding:18px 40px;
+    padding:16px 38px;
 
     border-radius:12px;
+
+    text-decoration:none;
 
     font-size:18px;
 
     font-weight:600;
 
-    transition:.4s;
+    transition:.3s;
 
 }
 
@@ -355,31 +296,29 @@ nav ul li a:hover{
 
     background:#1B5E20;
 
-    transform:translateY(-5px);
-
 }
 
-.register-btn{
-
-    text-decoration:none;
-
-    color:#2E7D32;
+.learn-btn{
 
     border:2px solid #2E7D32;
 
-    padding:18px 40px;
+    color:#2E7D32;
+
+    padding:16px 38px;
 
     border-radius:12px;
+
+    text-decoration:none;
 
     font-size:18px;
 
     font-weight:600;
 
-    transition:.4s;
+    transition:.3s;
 
 }
 
-.register-btn:hover{
+.learn-btn:hover{
 
     background:#2E7D32;
 
@@ -387,9 +326,7 @@ nav ul li a:hover{
 
 }
 
-/*==========================
-      HERO IMAGE
-===========================*/
+/*===================== RIGHT =====================*/
 
 .hero-right{
 
@@ -399,89 +336,113 @@ nav ul li a:hover{
 
     justify-content:center;
 
-    align-items:center;
-
 }
 
 .hero-right img{
 
-    width:100%;
+    width:550px;
 
-    max-width:600px;
+    max-width:100%;
 
     animation:floatImage 4s ease-in-out infinite;
 
 }
 
-/*==========================
-      FLOAT ANIMATION
-===========================*/
+/*===================== ANIMATION =====================*/
 
 @keyframes floatImage{
 
     0%{
-
-        transform:translateY(0);
-
+        transform:translateY(0px);
     }
 
     50%{
-
-        transform:translateY(-20px);
-
+        transform:translateY(-15px);
     }
 
     100%{
-
-        transform:translateY(0);
-
+        transform:translateY(0px);
     }
 
 }
-/*part-3*/
-/*==========================
-      STATS SECTION
-===========================*/
 
-.stats{
 
-    width:90%;
-    margin:60px auto;
 
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
 
-    gap:25px;
 
-}
 
-.card{
+/*======================================================
+                    WHY SECTION
+======================================================*/
 
-    background:#fff;
+.why{
 
-    padding:40px 20px;
+    padding:80px 70px;
 
-    border-radius:20px;
+    background:white;
 
     text-align:center;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
 
-    transition:.4s;
+.why h2{
+
+    font-size:42px;
+
+    color:#2E7D32;
+
+    margin-bottom:10px;
 
 }
 
-.card:hover{
+.subtitle{
+
+    font-size:18px;
+
+    color:#666;
+
+    margin-bottom:50px;
+
+}
+
+.why-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+}
+
+.why-card{
+
+    width:330px;
+
+    background:#fff;
+
+    padding:35px 30px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.why-card:hover{
 
     transform:translateY(-10px);
 
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
-
 }
 
-.card i{
+.why-card i{
 
     width:80px;
+
     height:80px;
 
     background:#2E7D32;
@@ -491,354 +452,459 @@ nav ul li a:hover{
     border-radius:50%;
 
     display:flex;
-    justify-content:center;
-    align-items:center;
 
-    margin:auto;
+    justify-content:center;
+
+    align-items:center;
 
     font-size:30px;
 
-}
-
-.card h2{
-
-    margin-top:20px;
-
-    font-size:38px;
-
-    color:#2E7D32;
-
-}
-
-.card p{
-
-    margin-top:10px;
-
-    color:#666;
-
-    font-size:18px;
-
-}
-
-/*==========================
-      SCROLLBAR
-===========================*/
-
-::-webkit-scrollbar{
-
-    width:10px;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:#2E7D32;
-
-    border-radius:20px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#eee;
-
-}
-
-/*==========================
-      TEXT SELECTION
-===========================*/
-
-::selection{
-
-    background:#2E7D32;
-    color:white;
-
-}
-
-/*==========================
-      RESPONSIVE
-===========================*/
-
-@media(max-width:1200px){
-
-header{
-
-    padding:0 40px;
-
-}
-
-.hero{
-
-    padding:60px 40px;
-
-}
-
-.hero-left h1{
-
-    font-size:55px;
-    line-height:70px;
-
-}
-
-.hero-left p{
-
-    font-size:18px;
-
-}
-
-.stats{
-
-    grid-template-columns:repeat(2,1fr);
-
-}
-
-}
-
-@media(max-width:900px){
-
-header{
-
-    flex-direction:column;
-
-    height:auto;
-
-    padding:20px;
-
-}
-
-nav ul{
-
-    margin:20px 0;
-
-}
-
-.hero{
-
-    flex-direction:column-reverse;
-
-    text-align:center;
-
-}
-
-.hero-left{
-
-    width:100%;
-
-}
-
-.hero-right{
-
-    width:100%;
-
-    margin-bottom:40px;
-
-}
-
-.hero-right img{
-
-    width:80%;
-
-}
-
-.features{
-
-    justify-content:center;
-
-}
-
-.buttons{
-
-    justify-content:center;
-
-}
-
-.line{
-
     margin:auto;
 
-    margin-top:20px;
-
-    margin-bottom:30px;
+    margin-bottom:25px;
 
 }
 
-.stats{
+.why-card h3{
 
-    grid-template-columns:1fr;
+    color:#222;
 
-}
-
-}
-
-@media(max-width:600px){
-
-.logo-text h2{
+    margin-bottom:15px;
 
     font-size:24px;
 
 }
 
-.hero-left h1{
+.why-card p{
 
-    font-size:40px;
-
-    line-height:55px;
-
-}
-
-.hero-left p{
-
-    font-size:16px;
+    color:#666;
 
     line-height:28px;
 
 }
 
-.start-btn,
-.register-btn{
 
-    width:100%;
+
+
+
+
+
+
+
+
+/*==========================================
+        HOW IT WORKS
+==========================================*/
+
+.how{
+
+    padding:80px 70px;
+
+    background:#F7FBF4;
 
     text-align:center;
 
-    padding:15px;
+}
+
+.how h2{
+
+    font-size:42px;
+
+    color:#2E7D32;
+
+    margin-bottom:10px;
 
 }
 
-.buttons{
+.steps{
 
-    flex-direction:column;
+    margin-top:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
 
 }
 
-.feature{
+.step{
+
+    width:180px;
+
+}
+
+.step-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    background:#2E7D32;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:35px;
+
+    margin-bottom:20px;
+
+    transition:.3s;
+
+}
+
+.step-icon:hover{
+
+    transform:scale(1.1);
+
+}
+
+.step h3{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.step p{
+
+    color:#666;
+
+    line-height:25px;
+
+    font-size:15px;
+
+}
+
+.arrow{
+
+    font-size:30px;
+
+    color:#2E7D32;
+
+}
+
+
+
+
+
+
+
+
+
+
+/*======================================================
+                        FOOTER
+======================================================*/
+
+footer{
+
+    background:#2E7D32;
+
+    color:white;
+
+    padding:60px 70px 20px;
+
+}
+
+.footer-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    flex-wrap:wrap;
+
+    gap:40px;
+
+}
+
+.footer-box{
+
+    width:250px;
+
+}
+
+.footer-box h2{
+
+    margin-bottom:20px;
+
+    font-size:35px;
+
+}
+
+.footer-box h3{
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+}
+
+.footer-box p{
+
+    line-height:30px;
+
+    color:#E8F5E9;
+
+}
+
+.footer-box ul{
+
+    list-style:none;
+
+}
+
+.footer-box ul li{
+
+    margin-bottom:15px;
+
+}
+
+.footer-box ul li a{
+
+    text-decoration:none;
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+.footer-box ul li a:hover{
+
+    color:#C8E6C9;
+
+    padding-left:8px;
+
+}
+
+footer hr{
+
+    margin-top:40px;
+
+    border:0;
+
+    height:1px;
+
+    background:#81C784;
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#E8F5E9;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=====================================
+            OUR MISSION
+======================================*/
+
+.mission{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:90px 70px;
+
+    background:#F7FBF4;
+
+}
+
+.mission-left{
+
+    width:55%;
+
+}
+
+.mission-left img{
 
     width:100%;
 
-}
+    border-radius:20px;
 
-nav ul{
-
-    gap:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
 
 }
 
+.mission-right{
+
+    width:40%;
+
 }
 
+.mission-right h2{
 
-    </style>
+    font-size:42px;
+
+    color:#2E7D32;
+
+    margin-bottom:25px;
+
+}
+
+.mission-right p{
+
+    font-size:18px;
+
+    color:#666;
+
+    line-height:35px;
+
+    margin-bottom:35px;
+
+}
+
+.mission-points{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.point{
+
+    margin-bottom:18px;
+
+    font-size:20px;
+
+}
+
+.point i{
+
+    color:#2E7D32;
+
+    margin-right:12px;
+
+}
+
+</style>
 
 </head>
 
 <body>
+
 <header>
 
-    <div class="logo">
+<div class="logo">
 
-        <img src="images/logo1.png" alt="Logo">
+<img src="images/logo.png">
 
-        <div class="logo-text">
+<div class="logo-text">
 
-            <h2>AgriConnect</h2>
+<h2>AgriConnect</h2>
 
-            <p>Farmers To Buyers Directly</p>
+<p>Farmers To Buyers Directly</p>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
-    <nav>
+<nav>
 
-        <ul>
+<ul>
 
-            <li><a href="#" class="active">Home</a></li>
+<li><a href="#">Home</a></li>
 
-            <li><a href="#">About</a></li>
+<li><a href="#">About</a></li>
 
-            <li><a href="#">Contact</a></li>
+<li><a href="#">Contact</a></li>
 
-        </ul>
+</ul>
 
-    </nav>
+</nav>
 
-    <a href="login.jsp" class="login-btn">
-        <i class="fa-regular fa-user"></i>
-        Login
-    </a>
+<div class="buttons">
+
+<a href="Login.jsp" class="login">
+
+<i class="fa-regular fa-user"></i>
+
+&nbsp;Login
+
+</a>
+
+<a href="Register.jsp" class="register">
+
+<i class="fa-solid fa-user-plus"></i>
+
+&nbsp;Register
+
+</a>
+
+</div>
 
 </header>
-
-
-
-
-
-<!-- HERO SECTION -->
-
 <section class="hero">
 
     <div class="hero-left">
 
         <h1>
-
             Connecting
-
             <span>Farmers & Buyers</span>
-
         </h1>
-
-        <div class="line"></div>
 
         <p>
 
-            AgriConnect is a trusted platform that connects farmers
-            directly with buyers. Sell fresh crops without middlemen,
-            get better prices, and make agriculture smarter.
+            AgriConnect is a platform that connects
+            farmers directly with buyers.
+
+            Sell fresh crops without middlemen,
+            get better prices and build trusted
+            business relationships.
 
         </p>
 
+        <div class="hero-buttons">
 
-
-        <div class="features">
-
-            <div class="feature">
-
-                <i class="fa-solid fa-users"></i>
-
-                <span>No Middleman</span>
-
-            </div>
-
-            <div class="feature">
-
-                <i class="fa-solid fa-indian-rupee-sign"></i>
-
-                <span>Fair Price</span>
-
-            </div>
-
-            <div class="feature">
-
-                <i class="fa-solid fa-shield-halved"></i>
-
-                <span>Trusted Trade</span>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="buttons">
-
-            <a href="login.jsp" class="start-btn">
+            <a href="Login.jsp" class="start-btn">
 
                 Get Started
 
             </a>
 
-            <a href="register.jsp" class="register-btn">
+            <a href="#about" class="learn-btn">
 
-                Register
+                Learn More
 
             </a>
 
@@ -846,75 +912,281 @@ nav ul{
 
     </div>
 
-
-
-
-
     <div class="hero-right">
 
-        <img src="images/fam-buy.png" alt="Farmer">
+        <img src="images/hero.png">
+
+    </div>
+
+</section>
+<section class="why">
+
+    <h2>Why Choose AgriConnect?</h2>
+
+    <p class="subtitle">
+        A simple platform that connects farmers directly with buyers.
+    </p>
+
+    <div class="why-container">
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-users"></i>
+
+            <h3>Direct Connection</h3>
+
+            <p>
+                Farmers sell directly to buyers without
+                any middlemen.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+            <h3>Fair Price</h3>
+
+            <p>
+                Farmers receive better prices
+                for their products.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-handshake"></i>
+
+            <h3>Trusted Platform</h3>
+
+            <p>
+                Safe and transparent
+                buying and selling experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="how">
+
+    <h2>How It Works</h2>
+
+    <p class="subtitle">
+        Buy and sell directly in just 5 simple steps.
+    </p>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <h3>Register</h3>
+
+            <p>Create your account as Farmer or Buyer.</p>
+
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+
+            <div class="step-icon">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            <h3>Add Product</h3>
+
+            <p>Farmers upload their fresh products.</p>
+
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+
+            <div class="step-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <h3>Browse</h3>
+
+            <p>Buyers search and view products.</p>
+
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+
+            <div class="step-icon">
+                <i class="fa-solid fa-comments"></i>
+            </div>
+
+            <h3>Contact</h3>
+
+            <p>Buyer contacts the farmer directly.</p>
+
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+
+            <div class="step-icon">
+                <i class="fa-solid fa-handshake"></i>
+            </div>
+
+            <h3>Deal</h3>
+
+            <p>Complete the deal without middlemen.</p>
+
+        </div>
 
     </div>
 
 </section>
 
+<footer>
 
+    <div class="footer-container">
 
+        <div class="footer-box">
 
+            <h2>AgriConnect</h2>
 
-<!-- STATS SECTION -->
+            <p>
+                Connecting Farmers and Buyers directly without
+                middlemen for fair and transparent trade.
+            </p>
 
-<section class="stats">
+        </div>
 
-    <div class="card">
+        <div class="footer-box">
 
-        <i class="fa-solid fa-tractor"></i>
+            <h3>Quick Links</h3>
 
-        <h2>100+</h2>
+            <ul>
 
-        <p>Farmers</p>
+                <li><a href="#">Home</a></li>
+
+                <li><a href="#">About</a></li>
+
+                <li><a href="#">Contact</a></li>
+
+                <li><a href="Login.jsp">Login</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Services</h3>
+
+            <ul>
+
+                <li>Farmer Registration</li>
+
+                <li>Buyer Registration</li>
+
+                <li>Sell Products</li>
+
+                <li>Buy Products</li>
+
+            </ul>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Contact</h3>
+
+            <p>Email : support@agriconnect.com</p>
+
+            <p>Phone : +91 9876543210</p>
+
+            <p>Bangalore, Karnataka</p>
+
+        </div>
 
     </div>
 
+    <hr>
 
+    <div class="copyright">
 
-    <div class="card">
-
-        <i class="fa-solid fa-cart-shopping"></i>
-
-        <h2>250+</h2>
-
-        <p>Buyers</p>
+        © 2026 AgriConnect | All Rights Reserved
 
     </div>
 
+</footer>
 
+<section class="mission">
 
-    <div class="card">
+    <div class="mission-left">
 
-        <i class="fa-solid fa-seedling"></i>
-
-        <h2>500+</h2>
-
-        <p>Products</p>
+        <img src="images/mission.png" alt="">
 
     </div>
 
+    <div class="mission-right">
 
+        <h2>Our Mission</h2>
 
-    <div class="card">
+        <p>
+            AgriConnect aims to bridge the gap between farmers and buyers
+            by creating a trusted marketplace without middlemen. Our goal
+            is to ensure fair pricing, transparency, and easy access to
+            agricultural products through technology.
+        </p>
 
-        <i class="fa-solid fa-handshake"></i>
+        <div class="mission-points">
 
-        <h2>100%</h2>
+            <div class="point">
+                <i class="fa-solid fa-check"></i>
+                Direct Farmer to Buyer
+            </div>
 
-        <p>Direct Trade</p>
+            <div class="point">
+                <i class="fa-solid fa-check"></i>
+                Better Price for Farmers
+            </div>
+
+            <div class="point">
+                <i class="fa-solid fa-check"></i>
+                Trusted Marketplace
+            </div>
+
+            <div class="point">
+                <i class="fa-solid fa-check"></i>
+                Easy and Secure Platform
+            </div>
+
+        </div>
 
     </div>
 
 </section>
-
-<!-- HTML WILL GO HERE -->
 
 </body>
+
 </html>

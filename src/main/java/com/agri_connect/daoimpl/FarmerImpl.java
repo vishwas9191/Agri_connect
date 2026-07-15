@@ -51,7 +51,7 @@ public class FarmerImpl implements FarmerDao{
 		ResultSet rs=ps.executeQuery();
 		while(rs.next()) {
 			f=new Farmer();
-			f.setFarmer_id(rs.getInt("id"));
+			
 		    f.setName(rs.getString("name"));
 		    f.setPhone(rs.getString("phone"));
 		    f.setVillage(rs.getString("village"));

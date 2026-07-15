@@ -5,263 +5,707 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
-<title>AgriConnect - Farmer Registration</title>
+
+<title>AgriConnect | Register</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: Arial, Helvetica, sans-serif;
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
 }
 
-body {
-	background-image: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)),
-		url("https://images.pexels.com/photos/18100007/pexels-photo-18100007/free-photo-of-farmer-with-oxes-on-field.jpeg");
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 30px;
-	
+body{
+
+    background:#EEF8EC;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
 }
+
+/*=========================
+        MAIN CONTAINER
+=========================*/
 
 .container{
-    width:800px;
-    background:rgba(255,255,255,0.05);   /* Low opacity */
-  background: rgba(255,255,255,0.04);
-backdrop-filter: blur(0px);
--webkit-backdrop-filter: blur(0px);
+
+    width:1500px;
+
+    height:900px;
+
+    background:white;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+}
+
+/*=========================
+        LEFT PANEL
+=========================*/
+
+.left{
+
+    width:45%;
+
+    padding:40px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+/*=========================
+        RIGHT PANEL
+=========================*/
+
+.right{
+
+    width:55%;
+
+    background:#F4FBF2;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.right img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/*=========================
+        LOGO
+=========================*/
+
+.logo{
+
+    width:90px;
+
+    margin:0 auto 10px;
+
+    display:block;
+
+}
+
+/*=========================
+        HEADING
+=========================*/
+
+.title{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.title h1{
+
+    color:#2E7D32;
+
+    font-size:46px;
+
+    font-weight:700;
+
+}
+
+.title p{
+
+    color:#666;
+
+    font-size:18px;
+
+    margin-top:8px;
+
+}
+
+/*=========================
+        FORM
+=========================*/
+
+.form-box{
+
+    background:white;
 
     border-radius:20px;
-    padding:35px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
 }
 
-.logo {
-	text-align: center;
-	color: white;
-	margin-bottom: 20px;
+form{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+
 }
 
-.logo h1 {
-	font-size: 34px;
+/*=========================
+        INPUT BOX
+=========================*/
+
+.input-box{
+
+    position:relative;
+
 }
 
-.logo p {
-	margin-top: 5px;
+.input-box label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#222;
+
 }
 
-.heading {
-	text-align: center;
-	color: white;
-	font-size: 24px;
-	margin-bottom: 25px;
+.input-box i{
+
+    position:absolute;
+
+    left:16px;
+
+    top:47px;
+
+    color:#2E7D32;
+
+    font-size:18px;
+
 }
 
-form {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px;
+.input-box input,
+.input-box select{
+
+    width:100%;
+
+    height:56px;
+
+    border:1px solid #C8E6C9;
+
+    border-radius:12px;
+
+    padding-left:48px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+
 }
 
-.form-group {
-	display: flex;
-	flex-direction: column;
+.input-box input:focus,
+.input-box select:focus{
+
+    border:2px solid #2E7D32;
+
+    box-shadow:0 0 8px rgba(46,125,50,.2);
+
 }
 
-.form-group label {
-	color: white;
-	margin-bottom: 6px;
-	font-weight: bold;
+/*=========================
+        FULL WIDTH
+=========================*/
+
+.full{
+
+    grid-column:1/3;
+
 }
 
-.form-group input {
-	padding: 12px;
-	border: none;
-	border-radius: 8px;
-	outline: none;
-	font-size: 15px;
+
+
+
+/*=========================
+        BUTTON
+=========================*/
+
+button{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#2E7D32;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
 }
 
-.form-group input:focus {
-	border: 2px solid green;
+button:hover{
+
+    background:#1B5E20;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 15px 30px rgba(46,125,50,.30);
+
 }
 
-.full {
-	grid-column: 1/3;
+/*=========================
+        LOGIN LINK
+=========================*/
+
+.register{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    font-size:17px;
+
+    color:#555;
+
 }
 
-button {
-	width: 100%;
-	padding: 14px;
-	border: none;
-	border-radius: 8px;
-	background: green;
-	color: white;
-	font-size: 18px;
-	cursor: pointer;
-	font-weight: bold;
+.register a{
+
+    text-decoration:none;
+
+    color:#2E7D32;
+
+    font-weight:700;
+
 }
 
-button:hover {
-	background: darkgreen;
+.register a:hover{
+
+    text-decoration:underline;
+
 }
 
-.footer {
-	text-align: center;
-	color: white;
-	margin-top: 20px;
+/*=========================
+        SECURITY
+=========================*/
+
+.security{
+
+    margin-top:30px;
+
+    padding:18px;
+
+    border:1px solid #D6F5D4;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    color:#2E7D32;
+
+    font-size:16px;
+
+    background:#F8FFF7;
+
 }
 
-.footer a {
-	color: lightgreen;
-	text-decoration: none;
+.security i{
+
+    margin-right:8px;
+
 }
 
-.footer a:hover {
-	text-decoration: underline;
+/*=========================
+        TOAST
+=========================*/
+
+.toast{
+
+    position:fixed;
+
+    top:30px;
+
+    left:50%;
+
+    transform:translate(-50%,-40px);
+
+    min-width:420px;
+
+    max-width:600px;
+
+    padding:18px 28px;
+
+    border-radius:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    background:#2E7D32;
+
+    color:white;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+    opacity:0;
+
+    transition:.45s;
+
+    z-index:9999;
+
 }
 
-/* Success Message Toast */
-.toast {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-     background: white;          /* White background */
-    color: #28a745; 
-    padding: 15px 25px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    opacity: 0;
-    transform: translateX(120%);
-    transition: all 0.5s ease;
-    z-index: 9999;
+.toast.show{
+
+    opacity:1;
+
+    transform:translate(-50%,0);
+
 }
 
-.toast.show {
-    opacity: 1;
-    transform: translateX(0);
-}
+.toast i{
 
+    font-size:22px;
+
+}
 </style>
 
 </head>
 
 <body>
 
-	<div class="container">
-
-		<div class="logo">
-			<h1>🌱 AgriConnect</h1>
-			<p>Connecting Farmers with Buyers</p>
-		</div>
-
-		<h2 class="heading">Create Farmer Account</h2>
-		
-		<%
-String success = (String)request.getAttribute("success");
-if(success != null){
+<%
+String success=(String)request.getAttribute("success");
+if(success!=null){
 %>
 
-<div id="toast" class="toast">
-    ✅ <%=success%>
+<div id="toast" class="toast success">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <%=success%>
+
 </div>
 
 <%
 }
 %>
 
-		<form action="register" method="post">
-			<!-- Full Name -->
-			<div class="form-group">
-				<label>Full Name</label> <input type="text" name="name"
-					placeholder="Enter your full name" required>
-			</div>
+<div class="container">
 
-			<!-- Email -->
-			<div class="form-group">
-				<label>Email</label> <input type="email" name="email"
-					placeholder="Enter your email" required>
-			</div>
+<!--==========================
+        LEFT PANEL
+===========================-->
 
-			<!-- Phone -->
-			<div class="form-group">
-				<label>Phone Number</label> <input type="text" name="phone"
-					placeholder="Enter your phone number" required>
-			</div>
+<div class="left">
 
-			<!-- Password -->
-			<div class="form-group">
-				<label>Password</label> <input type="password" name="password"
-					placeholder="Enter your password" required>
-			</div>
+<img src="images/logo.png" class="logo">
 
-			<!-- Confirm Password -->
-			
+<div class="title">
 
-			<!-- Village -->
-			<div class="form-group">
-				<label>Village</label> <input type="text" name="village"
-					placeholder="Enter your village" required>
-			</div>
+<h1>Create Your Account 🌿</h1>
 
-			<!-- District -->
-			<div class="form-group">
-				<label>District</label> <input type="text" name="district"
-					placeholder="Enter your district" required>
-			</div>
+<p>
 
-			<!-- State -->
-			<div class="form-group">
-				<label>State</label> <input type="text" name="state"
-					placeholder="Enter your state" required>
-			</div>
-			
-		<!	--------role->
-			<div class="form-group">
-				<label>Role</label> <input type="text" name="role"
-					placeholder="Enter your Role" required>
-			</div>
+Join the AgriConnect community today!
 
-			<!-- Submit Button -->
-			
-			
-			<div class="full">
-				<button type="submit">Create Account</button>
-			</div>
+</p>
 
-		</form>
+</div>
 
-		<div class="footer">
-			<p>
-				Already have an account? <a href="Login.jsp">Login</a>
-			</p>
-		</div>
+<div class="form-box">
 
-	</div>
-	<script>
-window.onload = function () {
-    var toast = document.getElementById("toast");
+<form action="register" method="post">
 
-    if (toast) {
-        toast.classList.add("show");
+<!-- Full Name -->
 
-        setTimeout(function () {
+<div class="input-box">
+
+<label>Full Name</label>
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+name="name"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+<!-- Email -->
+
+<div class="input-box">
+
+<label>Email</label>
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+name="email"
+placeholder="Enter your email"
+required>
+
+</div>
+
+<!-- Phone -->
+
+<div class="input-box">
+
+<label>Phone Number</label>
+
+<i class="fa-solid fa-phone"></i>
+
+<input
+type="text"
+name="phone"
+placeholder="Enter your phone number"
+required>
+
+</div>
+
+<!-- Password -->
+
+<div class="input-box">
+
+<label>Password</label>
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+name="password"
+placeholder="Enter your password"
+required>
+
+</div>
+
+<!-- Village -->
+
+<div class="input-box">
+
+<label>Village</label>
+
+<i class="fa-solid fa-location-dot"></i>
+
+<input
+type="text"
+name="village"
+placeholder="Enter your village"
+required>
+
+</div>
+
+<!-- District -->
+
+<div class="input-box">
+
+<label>District</label>
+
+<i class="fa-solid fa-building"></i>
+
+<input
+type="text"
+name="district"
+placeholder="Enter your district"
+required>
+
+</div>
+
+<!-- State -->
+
+<div class="input-box">
+
+<label>State</label>
+
+<i class="fa-solid fa-map-location-dot"></i>
+
+<input
+type="text"
+name="state"
+placeholder="Enter your state"
+required>
+
+</div>
+
+<!-- Role -->
+
+<div class="input-box">
+
+<label>Role</label>
+
+<i class="fa-solid fa-users"></i>
+
+<select name="role" required>
+
+<option value="">
+
+-- Select Role --
+
+</option>
+
+<option value="Farmer">
+
+Farmer
+
+</option>
+
+<option value="Buyer">
+
+Buyer
+
+</option>
+
+</select>
+
+</div>
+
+<!-- Button -->
+
+<div class="full">
+
+<button type="submit">
+
+<i class="fa-solid fa-user-plus"></i>
+
+&nbsp;
+
+Create Account
+
+</button>
+
+</div>
+
+</form>
+
+<div class="register">
+
+Already have an account?
+
+<a href="Login.jsp">
+
+Login
+
+</a>
+
+</div>
+
+<div class="security">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Your data is safe with us and will never be shared.
+
+</div>
+
+</div>
+
+</div>
+
+<!--==========================
+        RIGHT PANEL
+===========================-->
+
+<div class="right">
+
+<img src="images/register.png" alt="Register">
+
+</div>
+
+</div>
+<script>
+
+window.onload=function(){
+
+    const toast=document.getElementById("toast");
+
+    if(toast){
+
+        setTimeout(function(){
+
+            toast.classList.add("show");
+
+        },100);
+
+        setTimeout(function(){
+
             toast.classList.remove("show");
-        }, 3000);
+
+        },3000);
+
     }
-};
+
+}
+
 </script>
 
 </body>
+
 </html>
+

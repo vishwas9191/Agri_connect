@@ -1,11 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 
+
+
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
-<title>AgriConnect - Login</title>
+
+<title>AgriConnect | Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
 
@@ -13,50 +27,62 @@ pageEncoding="UTF-8"%>
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    height:100vh;
+
+    background:#EEF8EC;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    background-image:url("https://images.pexels.com/photos/18100007/pexels-photo-18100007/free-photo-of-farmer-with-oxes-on-field.jpeg");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-}
+    min-height:100vh;
 
-/* Main Container */
+    padding:30px;
+
+}
 
 .container{
 
-    width:1100px;
-    height:550px;
+    width:1400px;
 
-    display:flex;
+    height:780px;
 
-    border-radius:25px;
+    background:white;
+
+    border-radius:30px;
 
     overflow:hidden;
 
-    background:rgba(255,255,255,0.00);
-    
+    display:flex;
 
-   
-
-   
-
-    box-shadow:0px 10px 35px rgba(0,0,0,.4);
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
 
 }
 
-/* Left Side */
-
 .left{
 
-    width:50%;
+    width:42%;
+
+    padding:60px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.right{
+
+    width:58%;
+
+    background:#F4FBF2;
 
     display:flex;
 
@@ -64,119 +90,163 @@ body{
 
     align-items:center;
 
-    flex-direction:column;
+}
 
-    color:white;
+.right img{
 
-    text-align:center;
-    
-   
-    
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.logo{
+
+    width:95px;
+
+    margin-bottom:20px;
 
 }
 
 .left h1{
 
-    font-size:70px;
+    color:#2E7D32;
 
-    margin-bottom:15px;
+    font-size:48px;
 
-    text-shadow:2px 2px 10px black;
-    position: absolute;
-    top: 130px;
-    opacity: 1;
+    margin-bottom:8px;
 
 }
 
 .left p{
 
-    font-size:28px;
+    color:#666;
 
-    text-shadow:1px 1px 8px black;
-    position: absolute;
-    top: 215px;
-
-}
-
-/* Right Side */
-
-.right{
-
-    width:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-/* Login Box */
-
-.login-box{
-
-    width:80%;
-
-}
-
-.login-box h2{
-
-    text-align:center;
-
-    color:rgb(0, 0, 0);
-
-    font-size:40px;
+    font-size:20px;
 
     margin-bottom:35px;
 
 }
 
-/* Input Fields */
+.login-box{
 
-input{
+    background:white;
 
-    width:100%;
+    padding:35px;
 
-    padding:16px;
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.login-box h2{
+
+    color:#2E7D32;
+
+    font-size:34px;
+
+    margin-bottom:25px;
+
+}
+
+.input-box{
+
+    position:relative;
 
     margin-bottom:20px;
 
-    border-radius:10px;
+}
 
-    border:1px solid #2E7D32;
+.input-box i{
 
-    background:rgba(255,255,255,.9);
+    position:absolute;
+
+    top:50%;
+
+    left:18px;
+
+    transform:translateY(-50%);
+
+    color:#2E7D32;
 
     font-size:18px;
 
 }
 
-input:focus{
+.input-box input{
+
+    width:100%;
+
+    height:58px;
+
+    border:1px solid #C8E6C9;
+
+    border-radius:12px;
+
+    padding-left:50px;
+
+    font-size:16px;
 
     outline:none;
 
-    border:2px solid green;
+    transition:.3s;
 
 }
 
-/* Button */
+.input-box input:focus{
+
+    border:2px solid #2E7D32;
+
+    box-shadow:0 0 8px rgba(46,125,50,.2);
+
+}
+
+.forgot{
+
+    text-align:right;
+
+    margin-bottom:25px;
+
+}
+
+.forgot a{
+
+    text-decoration:none;
+
+    color:#2E7D32;
+
+    font-weight:600;
+
+    font-size:15px;
+
+}
+
+.forgot a:hover{
+
+    text-decoration:underline;
+
+}
 
 button{
 
     width:100%;
 
-    padding:16px;
+    height:58px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
     background:#2E7D32;
 
     color:white;
 
-    font-size:20px;
+    font-size:18px;
+
+    font-weight:600;
 
     cursor:pointer;
 
@@ -188,31 +258,25 @@ button:hover{
 
     background:#1B5E20;
 
-    transform:scale(1.02);
+    transform:translateY(-2px);
 
 }
 
-/* Register */
-
 .register{
 
-    margin-top:20px;
+    margin-top:22px;
 
     text-align:center;
-
-    color:black;
-
-    font-size:18px;
 
 }
 
 .register a{
 
-    color:blue;
+    color:#2E7D32;
 
     text-decoration:none;
 
-    font-weight:bold;
+    font-weight:700;
 
 }
 
@@ -222,41 +286,88 @@ button:hover{
 
 }
 
-
-/* Toast Message */
+/*==============================
+        TOAST MESSAGE
+==============================*/
 
 .toast{
+
     position:fixed;
-    top:20px;
-    right:20px;
-    padding:15px 25px;
-    border-radius:10px;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    box-shadow:0 5px 15px rgba(0,0,0,.3);
+ 
+
+    overflow:hidden;
+
+
+
+    top:35px;
+
+    left:50%;
+
+    transform:translate(-50%, -40px);
+
+    min-width:430px;
+
+    max-width:550px;
+
+    padding:18px 30px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
     opacity:0;
-    transform:translateX(120%);
-    transition:.5s;
+
+    transition:all .45s ease;
+
     z-index:9999;
+
 }
 
+
+
 .toast.show{
+
     opacity:1;
-    transform:translateX(0);
+
+    transform:translate(-50%,0);
+
 }
 
 .success{
-    background:#28a745;
+
+    background:rgba(46,125,50,.95);
+
+    color:white;
+
+    border-left:6px solid #A5D6A7;
+
 }
 
+.error{
 
-    .error{
-    background:white;
-    color:#28a745;
-    border-left:5px solid #28a745;
+    background:#FFF5F5;
+
+    color:#C62828;
+
+    border:1px solid #F8CACA;
+
 }
-
 
 </style>
 
@@ -264,87 +375,132 @@ button:hover{
 
 <body>
 
-<%
-String success=(String)request.getAttribute("success");
-String error=(String)request.getAttribute("error");
-
-if(success!=null){
-%>
-
-<div id="toast" class="toast success">
-    ✅ <%=success %>
-</div>
-
-<%
-}
-else if(error!=null){
-%>
-
-<div id="toast" class="toast error">
-    ❌ <%=error %>
-</div>
-
-<%
-}
-%>
+<!-- Toast code will come in Part 2 -->
 
 <div class="container">
 
-    <!-- Left Section -->
+<div class="left">
 
-    <div class="left">
+<img src="images/logo.png" class="logo">
 
-        <h1>AgriConnect</h1>
+<h1>Welcome Back! 👋</h1>
 
-        <p>Connecting Farmers with Buyers</p>
+<p>
 
-    </div>
+Login to continue your journey
 
-    <!-- Right Section -->
+</p>
 
-    <div class="right">
+<div class="login-box">
 
-        <div class="login-box">
+<h2>Login</h2>
 
-            <h2>Login</h2>
+<form action="Login" method="post">
 
-            <form action="Login" method="post">
+<div class="input-box">
 
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter Email"
-                    required>
+<i class="fa-solid fa-envelope"></i>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter Password"
-                    required>
-
-                <button type="submit">
-                    Login
-                </button>
-
-            </form>
-
-            <div class="register">
-
-                Don't have an account?
-                <a href="Register.jsp">Register.jsp</a>
-
-            </div>
-
-        </div>
-
-    </div>
+<input
+type="email"
+name="email"
+placeholder="Enter Email"
+required>
 
 </div>
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+name="password"
+placeholder="Enter Password"
+required>
+
+</div>
+
+<div class="forgot">
+
+<a href="ForgotPassword.jsp">
+
+Forgot Password?
+
+</a>
+
+</div>
+
+<button type="submit">
+
+<i class="fa-solid fa-arrow-right-to-bracket"></i>
+
+&nbsp; Login
+
+</button>
+
+</form>
+
+<div class="register">
+
+Don't have an account?
+
+<a href="Register.jsp">
+
+Register
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="right">
+
+<img src="images/login.png" alt="Login">
+
+</div>
+
+</div>
+<%
+String success = (String) request.getAttribute("success");
+String error = (String) request.getAttribute("error");
+
+if(success != null){
+%>
+
+<div id="toast" class="toast success">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <%= success %>
+
+</div>
+
+<%
+}
+else if(error != null){
+%>
+
+<div id="toast" class="toast error">
+
+    <i class="fa-solid fa-circle-xmark"></i>
+
+    <%= error %>
+
+</div>
+
+<%
+}
+%>
+
 <script>
 
-window.onload=function(){
+window.onload = function(){
 
-    var toast=document.getElementById("toast");
+    const toast = document.getElementById("toast");
 
     if(toast){
 
@@ -361,5 +517,7 @@ window.onload=function(){
 }
 
 </script>
+
 </body>
+
 </html>
