@@ -6,6 +6,7 @@ import com.agri_connect.dto.Farmer;
 
 
 
+
 public interface FarmerDao {
 	
 	 void addfarmer(Farmer f);  // create
@@ -14,10 +15,12 @@ public interface FarmerDao {
 
 	 Farmer findbymailandpassword(String email, String password);
 
-	 void updateFarmer(FarmerDao f);
+	 void updateFarmer(Farmer f);
 
 	 void deletebyid(Integer id);
 
 	 List<Farmer> findall();
+	 
+	 Farmer findemailby(String email);
 
 }

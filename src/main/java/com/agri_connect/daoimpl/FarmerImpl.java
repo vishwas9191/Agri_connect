@@ -51,7 +51,7 @@ public class FarmerImpl implements FarmerDao{
 		ResultSet rs=ps.executeQuery();
 		while(rs.next()) {
 			f=new Farmer();
-			
+			// id removed
 		    f.setName(rs.getString("name"));
 		    f.setPhone(rs.getString("phone"));
 		    f.setVillage(rs.getString("village"));
@@ -68,8 +68,26 @@ public class FarmerImpl implements FarmerDao{
 		return f;
 	}
 	@Override
-	public void updateFarmer(FarmerDao f) {
-		// TODO Auto-generated method stub
+	public void updateFarmer(Farmer f) {
+		String query="update farmer set name=?,phone=?,email=?,password=?,village=?,district=?,state=?,role=? where  farmer_id=?";
+		PreparedStatement ps;
+		try {
+			ps = con.prepareStatement(query);
+			ps.setString(1, f.getName());
+			ps.setString(2, f.getPhone());
+			ps.setString(3, f.getEmail());
+			ps.setString(4,f.getPassword());
+			ps.setString(5, f.getVillage());
+			ps.setString(6, f.getDistrict());
+			ps.setString(7, f.getState());
+			ps.setString(8, f.getRole());
+			ps.setInt(9, f.getFarmer_id());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	@Override
@@ -81,6 +99,33 @@ public class FarmerImpl implements FarmerDao{
 	public List<Farmer> findall() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public Farmer findemailby(String email) {
+		String query="select*from farmer where email=?";
+		Farmer f=null;
+		try {
+			PreparedStatement ps= con.prepareStatement(query);
+			ps.setString(1, email);
+			ResultSet rs= ps.executeQuery();
+			while(rs.next()) {
+				f=new Farmer();
+				f.setFarmer_id(rs.getInt("farmer_id"));
+				f.setName(rs.getString("name"));
+				f.setPhone(rs.getString("phone"));
+				f.setEmail(rs.getString("email"));
+				f.setPassword(rs.getString("password"));
+				f.setVillage(rs.getString("village"));
+				f.setDistrict(rs.getString("district"));
+				f.setState(rs.getString("state"));
+				f.setRole(rs.getString("role"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return f;
 	}
 
 	

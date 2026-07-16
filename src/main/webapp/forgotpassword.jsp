@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 
 
-
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +9,7 @@
 
 <meta charset="UTF-8">
 
-<title>AgriConnect | Login</title>
+<title>AgriConnect | Forgot Password</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -31,18 +30,30 @@
 	font-family: 'Poppins', sans-serif;
 }
 
-body {
-	background: #EEF8EC;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	padding: 30px;
+body{
+
+    background:#EEF8EC;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:30px;
+
+    overflow-y:auto;
+
 }
 
 .container {
-	width: 1400px;
-	height: 780px;
+	 width:1400px;
+
+    min-height:780px;
+
+    height:auto;
 	background: white;
 	border-radius: 30px;
 	overflow: hidden;
@@ -58,62 +69,72 @@ body {
 	justify-content: center;
 }
 
-.right {
-	width: 58%;
-	background: #F4FBF2;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.right{
+
+    width:58%;
+
+    background:#F4FBF2;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
 }
 
-.right img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+.right img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
 }
 
 .logo {
-	width: 95px;
+	width: 90px;
 	margin-bottom: 20px;
 }
 
 .left h1 {
 	color: #2E7D32;
-	font-size: 48px;
-	margin-bottom: 8px;
+	font-size: 44px;
+	margin-bottom: 10px;
 }
 
 .left p {
 	color: #666;
-	font-size: 20px;
+	font-size: 18px;
+	line-height: 30px;
 	margin-bottom: 35px;
 }
 
-.login-box {
+.form-box {
 	background: white;
 	padding: 35px;
 	border-radius: 20px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
 }
 
-.login-box h2 {
-	color: #2E7D32;
-	font-size: 34px;
-	margin-bottom: 25px;
-}
-
 .input-box {
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 22px;
+}
+
+.input-box label {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 15px;
+	font-weight: 600;
 }
 
 .input-box i {
 	position: absolute;
-	top: 50%;
 	left: 18px;
-	transform: translateY(-50%);
+	top: 46px;
 	color: #2E7D32;
-	font-size: 18px;
 }
 
 .input-box input {
@@ -132,22 +153,9 @@ body {
 	box-shadow: 0 0 8px rgba(46, 125, 50, .2);
 }
 
-.forgot {
-	text-align: right;
-	margin-bottom: 25px;
-}
-
-.forgot a {
-	text-decoration: none;
-	color: #2E7D32;
-	font-weight: 600;
-	font-size: 15px;
-}
-
-.forgot a:hover {
-	text-decoration: underline;
-}
-
+/*=========================
+        BUTTON
+=========================*/
 button {
 	width: 100%;
 	height: 58px;
@@ -166,19 +174,43 @@ button:hover {
 	transform: translateY(-2px);
 }
 
-.register {
-	margin-top: 22px;
+/*=========================
+        LOGIN LINK
+=========================*/
+.back-login {
+	margin-top: 25px;
 	text-align: center;
+	font-size: 16px;
 }
 
-.register a {
-	color: #2E7D32;
+.back-login a {
 	text-decoration: none;
+	color: #2E7D32;
 	font-weight: 700;
 }
 
-.register a:hover {
+.back-login a:hover {
 	text-decoration: underline;
+}
+
+/*=========================
+        INFO BOX
+=========================*/
+.info-box {
+	margin-top: 25px;
+	padding: 18px;
+	border-radius: 12px;
+	background: #F6FFF6;
+	border: 1px solid #C8E6C9;
+	color: #2E7D32;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.info-box i {
+	font-size: 22px;
 }
 
 /*==============================
@@ -186,25 +218,22 @@ button:hover {
 ==============================*/
 .toast {
 	position: fixed;
-	overflow: hidden;
-	top: 35px;
+	top: 30px;
 	left: 50%;
 	transform: translate(-50%, -40px);
-	min-width: 430px;
-	max-width: 550px;
+	min-width: 420px;
+	max-width: 600px;
 	padding: 18px 30px;
-	border-radius: 16px;
+	border-radius: 15px;
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	gap: 12px;
 	font-size: 18px;
 	font-weight: 600;
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
 	box-shadow: 0 15px 35px rgba(0, 0, 0, .18);
 	opacity: 0;
-	transition: all .45s ease;
+	transition: .45s;
 	z-index: 9999;
 }
 
@@ -214,9 +243,8 @@ button:hover {
 }
 
 .success {
-	background: rgba(46, 125, 50, .95);
+	background: #2E7D32;
 	color: white;
-	border-left: 6px solid #A5D6A7;
 }
 
 .error {
@@ -230,7 +258,10 @@ button:hover {
 
 <body>
 
-	<!-- Toast code will come in Part 2 -->
+	<%
+	String success = (String) request.getAttribute("success");
+	String error = (String) request.getAttribute("error");
+	%>
 
 	<div class="container">
 
@@ -238,47 +269,65 @@ button:hover {
 
 			<img src="images/logo.png" class="logo">
 
-			<h1>Welcome Back! 👋</h1>
+			<h1>Forgot Password 🔑</h1>
 
-			<p>Login to continue your journey</p>
+			<p>Enter your registered email address and create a new password
+				to continue using AgriConnect.</p>
 
-			<div class="login-box">
+			<div class="form-box">
 
-				<h2>Login</h2>
-
-				<form action="Login" method="post">
-
-					<div class="input-box">
-
-						<i class="fa-solid fa-envelope"></i> <input type="email"
-							name="email" placeholder="Enter Email" required>
-
-					</div>
+				<form action="forgotpassword" method="post">
+					<!-- Email -->
 
 					<div class="input-box">
 
-						<i class="fa-solid fa-lock"></i> <input type="password"
-							name="password" placeholder="Enter Password" required>
+						<label>Email Address</label> <i class="fa-solid fa-envelope"></i>
+
+						<input type="email" name="email"
+							placeholder="Enter your registered email" required>
 
 					</div>
 
-					<div class="forgot">
+					<!-- New Password -->
 
-						<a href="forgotpassword.jsp"> Forgot Password? </a>
+					<div class="input-box">
+
+						<label>New Password</label> <i class="fa-solid fa-lock"></i> <input
+							type="password" name="password" placeholder="Enter new password"
+							required>
 
 					</div>
+
+					<!-- Confirm Password -->
+
+					<div class="input-box">
+
+						<label>Confirm Password</label> <i class="fa-solid fa-key"></i> <input
+							type="password" name="confirm" placeholder="Confirm new password"
+							required>
+
+					</div>
+
+					<!-- Button -->
 
 					<button type="submit">
 
-						<i class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp; Login
+						<i class="fa-solid fa-rotate"></i> &nbsp; Reset Password
 
 					</button>
 
 				</form>
 
-				<div class="register">
+				<div class="back-login">
 
-					Don't have an account? <a href="Register.jsp"> Register </a>
+					Remember your password? <a href="Login.jsp"> Login </a>
+
+				</div>
+
+				<div class="info-box">
+
+					<i class="fa-solid fa-circle-info"></i> Make sure you use the email
+					address that you registered with AgriConnect.
 
 				</div>
 
@@ -286,17 +335,16 @@ button:hover {
 
 		</div>
 
+		<!-- Right Section -->
+
 		<div class="right">
 
-			<img src="images/login.png" alt="Login">
+			<img src="images/forgotpassword.png" alt="Forgot Password">
 
 		</div>
 
 	</div>
 	<%
-	String success = (String) request.getAttribute("success");
-	String error = (String) request.getAttribute("error");
-
 	if (success != null) {
 	%>
 
@@ -324,6 +372,7 @@ button:hover {
 	}
 	%>
 
+
 	<script>
 		window.onload = function() {
 
@@ -331,7 +380,11 @@ button:hover {
 
 			if (toast) {
 
-				toast.classList.add("show");
+				setTimeout(function() {
+
+					toast.classList.add("show");
+
+				}, 100);
 
 				setTimeout(function() {
 
@@ -343,7 +396,6 @@ button:hover {
 
 		}
 	</script>
-
 </body>
 
 </html>
