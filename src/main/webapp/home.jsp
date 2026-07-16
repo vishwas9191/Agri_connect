@@ -759,6 +759,47 @@ footer hr {
 		</div>
 
 	</section>
+	
+	<section class="mission">
+
+		<div class="mission-left">
+
+			<img src="images/mission.png" alt="">
+
+		</div>
+
+		<div class="mission-right">
+
+			<h2>Our Mission</h2>
+
+			<p>AgriConnect aims to bridge the gap between farmers and buyers
+				by creating a trusted marketplace without middlemen. Our goal is to
+				ensure fair pricing, transparency, and easy access to agricultural
+				products through technology.</p>
+
+			<div class="mission-points">
+
+				<div class="point">
+					<i class="fa-solid fa-check"></i> Direct Farmer to Buyer
+				</div>
+
+				<div class="point">
+					<i class="fa-solid fa-check"></i> Better Price for Farmers
+				</div>
+
+				<div class="point">
+					<i class="fa-solid fa-check"></i> Trusted Marketplace
+				</div>
+
+				<div class="point">
+					<i class="fa-solid fa-check"></i> Easy and Secure Platform
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
 
 	<footer>
 
@@ -831,46 +872,7 @@ footer hr {
 
 	</footer>
 
-	<section class="mission">
-
-		<div class="mission-left">
-
-			<img src="images/mission.png" alt="">
-
-		</div>
-
-		<div class="mission-right">
-
-			<h2>Our Mission</h2>
-
-			<p>AgriConnect aims to bridge the gap between farmers and buyers
-				by creating a trusted marketplace without middlemen. Our goal is to
-				ensure fair pricing, transparency, and easy access to agricultural
-				products through technology.</p>
-
-			<div class="mission-points">
-
-				<div class="point">
-					<i class="fa-solid fa-check"></i> Direct Farmer to Buyer
-				</div>
-
-				<div class="point">
-					<i class="fa-solid fa-check"></i> Better Price for Farmers
-				</div>
-
-				<div class="point">
-					<i class="fa-solid fa-check"></i> Trusted Marketplace
-				</div>
-
-				<div class="point">
-					<i class="fa-solid fa-check"></i> Easy and Secure Platform
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
+	
 
 </body>
 
