@@ -2,17 +2,19 @@ package com.agri_connect.dao;
 
 import java.util.List;
 
+import com.agri_connect.dto.Apmc;
+
 public interface ApmcDao {
 	
-   void registerOwner(ApmcDao owner);
+   void registerOwner(Apmc a);
 
    ApmcDao loginOwner(String email, String password);
 
    ApmcDao  getOwnerById(int ownerId);
 
-    boolean updateOwner(ApmcDao owner);
+    void updateOwner(Apmc a);
 
-    boolean deleteOwner(int ownerId);
+   void deleteOwner(int ownerId);
 
     List<ApmcDao> getAllOwners();
 
