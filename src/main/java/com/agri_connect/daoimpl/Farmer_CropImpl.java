@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.agri_connect.dao.Farmer_CropDao;
@@ -107,20 +108,100 @@ public class Farmer_CropImpl implements Farmer_CropDao{
 	}
 
 	@Override
-	public List<Farmer_CropDao> getAllFarmerCrops() {
+	public List<Farmer_Crop> getAllFarmerCrops() {
 		
-		return null;
+		  List<Farmer_Crop> list = new ArrayList<>();
+
+		    String query = "SELECT * FROM farmer_crop";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+
+	            Farmer_Crop fc = new Farmer_Crop();
+
+	            fc.setCrop_id(rs.getInt("farmer_crop_id"));
+	            fc.setFarmer_id(rs.getInt("farmer_id"));
+	            fc.setCrop_id(rs.getInt("crop_id"));
+	            fc.setQuantity(rs.getDouble("quantity"));
+	            fc.setPrice(rs.getDouble("price_per_kg"));
+	            fc.setHarvested(rs.getDate("harvest_date"));
+	            fc.setStatus(rs.getString("status"));
+
+	            list.add(fc);
+	        }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
-	public List<Farmer_CropDao> getCropsByFarmerId(int farmerId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Farmer_Crop> getCropsByFarmerId(int farmerId) {
+		List<Farmer_Crop> list = new ArrayList<>();
+
+	    String query = "SELECT * FROM farmer_crop WHERE farmer_id=?";
+	    
+	    try {
+			PreparedStatement ps = con.prepareStatement(query);
+			 ps.setInt(1, farmerId);
+
+		        ResultSet rs = ps.executeQuery();
+
+		        while (rs.next()) {
+
+		            Farmer_Crop fc = new Farmer_Crop();
+
+		            fc.setCrop_id(rs.getInt("farmer_crop_id"));
+		            fc.setFarmer_id(rs.getInt("farmer_id"));
+		            fc.setCrop_id(rs.getInt("crop_id"));
+		            fc.setQuantity(rs.getDouble("quantity"));
+		            fc.setPrice(rs.getDouble("price_per_kg"));
+		            fc.setHarvested(rs.getDate("harvest_date"));
+		            fc.setStatus(rs.getString("status"));
+
+		            list.add(fc);
+		        }
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
-	public List<Farmer_CropDao> getCropsByCropId(int cropId) {
-		// TODO Auto-generated method stub
+	public List<Farmer_Crop> getCropsByCropId(int cropId) {
+		List<Farmer_Crop> list = new ArrayList<>();
+		 String query = "SELECT * FROM farmer_crop WHERE crop_id=?";
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			 ps.setInt(1, cropId);
+
+		        ResultSet rs = ps.executeQuery();
+
+		        while (rs.next()) {
+
+		            Farmer_Crop fc = new Farmer_Crop();
+
+		            fc.setCrop_id(rs.getInt("farmer_crop_id"));
+		            fc.setFarmer_id(rs.getInt("farmer_id"));
+		            fc.setCrop_id(rs.getInt("crop_id"));
+		            fc.setQuantity(rs.getDouble("quantity"));
+		            fc.setPrice(rs.getDouble("price_per_kg"));
+		            fc.setHarvested(rs.getDate("harvest_date"));
+		            fc.setStatus(rs.getString("status"));
+
+		            list.add(fc);
+		        }
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 	

@@ -14,11 +14,11 @@ public interface Farmer_CropDao {
 
     Farmer_CropDao getFarmerCropById(int farmerCropId);
 
-    List<Farmer_CropDao> getAllFarmerCrops();
+    List<Farmer_Crop> getAllFarmerCrops();
 
-    List<Farmer_CropDao> getCropsByFarmerId(int farmerId);
+    List<Farmer_Crop> getCropsByFarmerId(int farmerId);
 
-    List<Farmer_CropDao> getCropsByCropId(int cropId);
+    List<Farmer_Crop> getCropsByCropId(int cropId);
 	
 	
 
