@@ -8,14 +8,14 @@ public interface ApmcDao {
 	
    void registerOwner(Apmc a);
 
-   ApmcDao loginOwner(String email, String password);
+   Apmc loginOwner(String email, String password);
 
-   ApmcDao  getOwnerById(int ownerId);
+   Apmc  getOwnerById(int ownerId);
 
     void updateOwner(Apmc a);
 
    void deleteOwner(int ownerId);
 
-    List<ApmcDao> getAllOwners();
+    List<Apmc> getAllOwners();
 
 }

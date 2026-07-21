@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.agri_connect.dao.FarmerDao;
@@ -37,8 +38,32 @@ public class FarmerImpl implements FarmerDao{
 	}
 	@Override
 	public Farmer findidby(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		 Farmer f = null;
+		    String query = "SELECT * FROM farmer WHERE farmer_id=?";
+		    try {
+				PreparedStatement ps = con.prepareStatement(query);
+				 ps.setInt(1, id);
+
+			        ResultSet rs = ps.executeQuery();
+
+			        while(rs.next()) {
+			            f = new Farmer();
+
+			            f.setFarmer_id(rs.getInt("farmer_id"));
+			            f.setName(rs.getString("name"));
+			            f.setPhone(rs.getString("phone"));
+			            f.setEmail(rs.getString("email"));
+			            f.setPassword(rs.getString("password"));
+			            f.setVillage(rs.getString("village"));
+			            f.setDistrict(rs.getString("district"));
+			            f.setState(rs.getString("state"));
+			            f.setRole(rs.getString("role"));
+			        }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return f;
 	}
 	@Override
 	public Farmer findbymailandpassword(String email, String password) {
@@ -92,13 +117,51 @@ public class FarmerImpl implements FarmerDao{
 	}
 	@Override
 	public void deletebyid(Integer id) {
-		// TODO Auto-generated method stub
+		String query = "DELETE FROM farmer WHERE farmer_id=?";
+		 try {
+			PreparedStatement ps = con.prepareStatement(query);
+			  ps.setInt(1, id);
+
+		        ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	@Override
 	public List<Farmer> findall() {
-		// TODO Auto-generated method stub
-		return null;
+		 List<Farmer> list = new ArrayList<>();
+
+		    String query = "SELECT * FROM farmer";
+		    
+		    try {
+				PreparedStatement ps = con.prepareStatement(query);
+				 ResultSet rs = ps.executeQuery();
+
+			        while (rs.next()) {
+
+			            Farmer f = new Farmer();
+
+			            f.setFarmer_id(rs.getInt("farmer_id"));
+			            f.setName(rs.getString("name"));
+			            f.setPhone(rs.getString("phone"));
+			            f.setEmail(rs.getString("email"));
+			            f.setPassword(rs.getString("password"));
+			            f.setVillage(rs.getString("village"));
+			            f.setDistrict(rs.getString("district"));
+			            f.setState(rs.getString("state"));
+			            f.setRole(rs.getString("role"));
+
+			            list.add(f);
+			        }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+		return list;
 	}
 	@Override
 	public Farmer findemailby(String email) {

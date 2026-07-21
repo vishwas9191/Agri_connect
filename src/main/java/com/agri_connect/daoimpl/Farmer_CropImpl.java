@@ -202,7 +202,7 @@ public class Farmer_CropImpl implements Farmer_CropDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return list;
 	}
 	
 

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.agri_connect.dao.ApmcDao;
@@ -17,7 +18,7 @@ public class ApmcImpl implements ApmcDao{
 	}
 	@Override
 	public void registerOwner(Apmc a) {
-		String query = "insert into apmc_owner(0,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO apmc_owner VALUES(0,?,?,?,?,?,?,?)";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
@@ -38,7 +39,7 @@ public class ApmcImpl implements ApmcDao{
 	}
 
 	@Override
-	public ApmcDao loginOwner(String email, String password) {
+	public Apmc loginOwner(String email, String password) {
 		Apmc a = null;
 		String query = "select * from ampc_owner where email=? and password=?";
 		try {
@@ -62,13 +63,38 @@ public class ApmcImpl implements ApmcDao{
 			e.printStackTrace();
 		}
 		
-		return null;
+		return a;
 	}
 
 	@Override
-	public ApmcDao getOwnerById(int ownerId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Apmc getOwnerById(int ownerId) {
+		
+		 Apmc a = null;
+		    String query = "SELECT * FROM apmc_owner WHERE owner_id=?";
+		    try {
+				PreparedStatement ps = con.prepareStatement(query);
+				  ps.setInt(1, ownerId);
+
+			        ResultSet rs = ps.executeQuery();
+
+			        while(rs.next()) {
+			            a = new Apmc();
+
+			            a.setOwner_id(rs.getInt("owner_id"));
+			            a.setOwner_name(rs.getString("owner_name"));
+			            a.setMarket_name(rs.getString("market_name"));
+			            a.setPhone(rs.getString("phone"));
+			            a.setEmail(rs.getString("email"));
+			            a.setPassword(rs.getString("password"));
+			            a.setDistrict(rs.getString("district"));
+			            a.setState(rs.getString("state"));
+			        }
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return  a;
 	}
 
 	@Override
@@ -92,14 +118,51 @@ public class ApmcImpl implements ApmcDao{
 
 	@Override
 	public void deleteOwner(int ownerId) {
-		// TODO Auto-generated method stub
+		 String query = "DELETE FROM apmc_owner WHERE owner_id=?";
+		 try {
+			PreparedStatement ps = con.prepareStatement(query);
+			 ps.setInt(1, ownerId);
+
+		        ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
 		
 	}
 
 	@Override
-	public List<ApmcDao> getAllOwners() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Apmc> getAllOwners() {
+		List<Apmc> list = new ArrayList<>();
+
+	    String query = "SELECT * FROM apmc_owner";
+	    try {
+			PreparedStatement ps = con.prepareStatement(query);
+			 ResultSet rs = ps.executeQuery();
+
+		        while (rs.next()) {
+
+		            Apmc a = new Apmc();
+
+		            a.setOwner_id(rs.getInt("owner_id"));
+		            a.setOwner_name(rs.getString("owner_name"));
+		            a.setMarket_name(rs.getString("market_name"));
+		            a.setPhone(rs.getString("phone"));
+		            a.setEmail(rs.getString("email"));
+		            a.setPassword(rs.getString("password"));
+		            a.setDistrict(rs.getString("district"));
+		            a.setState(rs.getString("state"));
+
+		            list.add(a);
+		        }
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+		return list;
 	}
 	
 	
