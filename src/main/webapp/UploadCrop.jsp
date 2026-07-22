@@ -268,15 +268,15 @@ String error=(String)request.getAttribute("error");
 
     <option value="">Select Crop</option>
 
-    <option value="1">Tomato</option>
+    <option value="6">Tomato</option>
 
-    <option value="2">Onion</option>
+    <option value="7">Onion</option>
 
-    <option value="3">Rice</option>
+    <option value="8">Rice</option>
 
-    <option value="4">Potato</option>
+    <option value="9">Potato</option>
 
-    <option value="5">Wheat</option>
+    <option value="10">Wheat</option>
 
 </select>
 
