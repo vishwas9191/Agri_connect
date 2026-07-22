@@ -7,200 +7,148 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.agri_connect.dao.Crop_RequestDao;
-import com.agri_connect.dto.Crop_Request;
+import com.agri_connect.dao.CropDao;
+import com.agri_connect.dto.Crop;
 import com.agri_connect.utility.Connector;
 
-public class CropImpl implements Crop_RequestDao{
-	
-	private Connection con;
-	public CropImpl() {
-		this.con=Connector.RequestConnector();
-	}
-	@Override
-	public void sendRequest(Crop_Request request) {
-		String query ="INSERT INTO crop_request VALUES(?,?,?,?)";
+public class CropImpl implements CropDao {
 
-		 try {
-			PreparedStatement ps = con.prepareStatement(query);
-			 ps.setInt(1, request.getOwner_id());
-	            ps.setInt(2, request.getFarmer_crop_id());
-	            ps.setString(3, request.getStatus());
-	            ps.setDate(4, request.getRequest_date());
+    private Connection con;
 
-	            ps.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	@Override
-	public void acceptRequest(int requestId) {
-		 String query = "UPDATE crop_request SET status='Accepted' WHERE request_id=?";
-         try {
-			PreparedStatement ps = con.prepareStatement(query);
-			
-			 ps.setInt(1, requestId);
+    public CropImpl() {
+        this.con = Connector.RequestConnector();
+    }
 
-	            ps.executeUpdate();
+    @Override
+    public boolean addCrop(Crop cp) {
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        String query = "INSERT INTO crop(crop_name, category, season) VALUES(?,?,?)";
 
-	}
-	@Override
-	public void rejectRequest(int requestId) {
-		String query = "UPDATE crop_request SET status='Rejected' WHERE request_id=?";
         try {
-			PreparedStatement ps = con.prepareStatement(query);
-			 ps.setInt(1, requestId);
+            PreparedStatement ps = con.prepareStatement(query);
 
-	            ps.executeUpdate();
+            ps.setString(1, cp.getName());
+            ps.setString(2, cp.getCategory());
+            ps.setString(3, cp.getSeason());
 
-	            System.out.println("Request Rejected");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	@Override
-	public Crop_Request getRequestById(int requestId) {
+            return ps.executeUpdate() > 0;
 
-        Crop_Request request = null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-        String query = "SELECT * FROM crop_request WHERE request_id=?";
+        return false;
+    }
+
+    @Override
+    public Crop getCropById(int cropId) {
+
+        String query = "SELECT * FROM crop WHERE crop_id=?";
+
         try {
-			PreparedStatement ps = con.prepareStatement(query);
-			
-			 ps.setInt(1, requestId);
 
-	            ResultSet rs = ps.executeQuery();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, cropId);
 
-	            while(rs.next()) {
+            ResultSet rs = ps.executeQuery();
 
-	                request = new Crop_Request();
+            if (rs.next()) {
 
-	                request.setRequest_id(rs.getInt("request_id"));
-	                request.setOwner_id(rs.getInt("owner_id"));
-	                request.setFarmer_crop_id(rs.getInt("farmer_crop_id"));
-	                request.setStatus(rs.getString("status"));
-	                request.setRequest_date(rs.getDate("request_date"));
-	            }
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return request;
-	}
-	@Override
-	public List<Crop_Request> getAllRequests() {
-		List<Crop_Request> list = new ArrayList<>();
+                Crop cp = new Crop();
 
-        String query = "SELECT * FROM crop_request";
-        try {
-			PreparedStatement ps = con.prepareStatement(query);
-			ResultSet rs = ps.executeQuery();
+                cp.setCrop_id(rs.getInt("crop_id"));
+                cp.setName(rs.getString("crop_name"));
+                cp.setCategory(rs.getString("category"));
+                cp.setSeason(rs.getString("season"));
 
-            while (rs.next()) {
-
-                Crop_Request request = new Crop_Request();
-
-                request.setRequest_id(rs.getInt("request_id"));
-                request.setOwner_id(rs.getInt("owner_id"));
-                request.setFarmer_crop_id(rs.getInt("farmer_crop_id"));
-                request.setStatus(rs.getString("status"));
-                request.setRequest_date(rs.getDate("request_date"));
-
-                list.add(request);
+                return cp;
             }
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return list;
-	}
-	@Override
-	public List<Crop_Request> getRequestsByOwner(int ownerId) {
-		List<Crop_Request> list = new ArrayList<>();
 
-        String query = "SELECT * FROM crop_request WHERE owner_id=?";
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<Crop> getAllCrops() {
+
+        List<Crop> list = new ArrayList<>();
+
+        String query = "SELECT * FROM crop";
+
         try {
-			PreparedStatement ps = con.prepareStatement(query);
 
-            ps.setInt(1, ownerId);
+            PreparedStatement ps = con.prepareStatement(query);
 
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
 
-                Crop_Request request = new Crop_Request();
+                Crop cp = new Crop();
 
-                request.setRequest_id(rs.getInt("request_id"));
-                request.setOwner_id(rs.getInt("owner_id"));
-                request.setFarmer_crop_id(rs.getInt("farmer_crop_id"));
-                request.setStatus(rs.getString("status"));
-                request.setRequest_date(rs.getDate("request_date"));
+                cp.setCrop_id(rs.getInt("crop_id"));
+                cp.setName(rs.getString("crop_name"));
+                cp.setCategory(rs.getString("category"));
+                cp.setSeason(rs.getString("season"));
 
-                list.add(request);
+                list.add(cp);
             }
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return list;
-	}
-	@Override
-	public List<Crop_Request> getRequestsByFarmerCrop(int farmerCropId) {
-		 List<Crop_Request> list = new ArrayList<>();
+    }
 
-	        String query = "SELECT * FROM crop_request WHERE farmer_crop_id=?";
-	        try {
-				PreparedStatement ps = con.prepareStatement(query);
-				 ps.setInt(1, farmerCropId);
+    @Override
+    public void updateCrop(Crop cp) {
 
-		            ResultSet rs = ps.executeQuery();
+        String query = "UPDATE crop SET crop_name=?, category=?, season=? WHERE crop_id=?";
 
-		            while (rs.next()) {
+        try {
 
-		                Crop_Request request = new Crop_Request();
+            PreparedStatement ps = con.prepareStatement(query);
 
-		                request.setRequest_id(rs.getInt("request_id"));
-		                request.setOwner_id(rs.getInt("owner_id"));
-		                request.setFarmer_crop_id(rs.getInt("farmer_crop_id"));
-		                request.setStatus(rs.getString("status"));
-		                request.setRequest_date(rs.getDate("request_date"));
+            ps.setString(1, cp.getName());
+            ps.setString(2, cp.getCategory());
+            ps.setString(3, cp.getSeason());
+            ps.setInt(4, cp.getCrop_id());
 
-		                list.add(request);
-		            }
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+            int result = ps.executeUpdate();
 
-	        return list;
-	}
-	@Override
-	public void deleteRequest(int requestId) {
-		String query = "DELETE FROM crop_request WHERE request_id=?";
-		try {
-			PreparedStatement ps = con.prepareStatement(query);
-			 ps.setInt(1, requestId);
+            if (result > 0)
+                System.out.println("Crop Updated Successfully");
+            else
+                System.out.println("Crop Not Found");
 
-	            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-	            System.out.println("Request Deleted Successfully");
+    @Override
+    public void deleteCrop(int cropId) {
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        String query = "DELETE FROM crop WHERE crop_id=?";
 
-		
-	}
+        try {
 
-	
-	}
+            PreparedStatement ps = con.prepareStatement(query);
 
+            ps.setInt(1, cropId);
 
+            int result = ps.executeUpdate();
+
+            if (result > 0)
+                System.out.println("Crop Deleted Successfully");
+            else
+                System.out.println("Crop Not Found");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

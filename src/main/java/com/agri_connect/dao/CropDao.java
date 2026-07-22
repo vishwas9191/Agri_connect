@@ -2,15 +2,17 @@ package com.agri_connect.dao;
 
 import java.util.List;
 
+import com.agri_connect.dto.Crop;
+
 public interface CropDao {
 	
-	 boolean addCrop(CropDao cropDao);
+	 boolean addCrop(Crop cp);
 
-	    CropDao getCropById(int cropId);
+	    Crop getCropById(int cropId);
 
-	    List<CropDao> getAllCrops();
+	    List<Crop> getAllCrops();
 
-	    void updateCrop(CropDao cropDao);
+	    void updateCrop(Crop cp);
 
 	   void deleteCrop(int cropId);
 
