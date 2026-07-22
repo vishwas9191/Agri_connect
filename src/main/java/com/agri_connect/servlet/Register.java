@@ -35,6 +35,11 @@ public class Register extends HttpServlet{
 		req.setAttribute("success", "register sucessfull");
 		req.getRequestDispatcher("Register.jsp").forward(req, resp);
 		
+		
+		
+		
+		
+		
 	}
 
 }

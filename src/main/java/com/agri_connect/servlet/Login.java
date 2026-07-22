@@ -25,7 +25,7 @@ public class Login extends HttpServlet{
 		if(f!=null) {
 			HttpSession session=req.getSession();
 			session.setAttribute("login done", f);
-			req.getRequestDispatcher("Login.jsp").forward(req, resp);
+			req.getRequestDispatcher("dashboard.jsp").forward(req, resp);
 		}
 		else {
 			req.setAttribute("error", "invalid password or invalid email");
