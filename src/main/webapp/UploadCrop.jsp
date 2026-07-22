@@ -38,12 +38,9 @@ body {
 	padding: 30px;
 }
 
-/*=========================
-        CONTAINER
-=========================*/
 .container {
 	width: 1400px;
-	height: 780px;
+	min-height: 780px;
 	background: white;
 	border-radius: 30px;
 	overflow: hidden;
@@ -52,7 +49,7 @@ body {
 }
 
 /*=========================
-        LEFT
+        LEFT SIDE
 =========================*/
 .left {
 	width: 42%;
@@ -63,7 +60,7 @@ body {
 }
 
 /*=========================
-        RIGHT
+        RIGHT SIDE
 =========================*/
 .right {
 	width: 58%;
@@ -88,11 +85,11 @@ body {
 }
 
 /*=========================
-        HEADING
+        TITLE
 =========================*/
 .left h1 {
 	color: #2E7D32;
-	font-size: 45px;
+	font-size: 44px;
 	margin-bottom: 10px;
 }
 
@@ -118,7 +115,7 @@ body {
 =========================*/
 .input-box {
 	position: relative;
-	margin-bottom: 22px;
+	margin-bottom: 20px;
 }
 
 .input-box label {
@@ -140,9 +137,9 @@ body {
 .input-box input, .input-box select {
 	width: 100%;
 	height: 58px;
-	padding-left: 50px;
 	border: 1px solid #C8E6C9;
 	border-radius: 12px;
+	padding-left: 50px;
 	font-size: 16px;
 	outline: none;
 	transition: .3s;
@@ -151,8 +148,9 @@ body {
 
 .input-box input:focus, .input-box select:focus {
 	border: 2px solid #2E7D32;
-	box-shadow: 0 0 8px rgba(46, 125, 50, .2);
+	box-shadow: 0 0 8px rgba(46, 125, 50, .20);
 }
+
 /*=========================
         BUTTON
 =========================*/
@@ -175,44 +173,24 @@ button:hover {
 }
 
 /*=========================
-    VIEW CROPS
-=========================*/
-.view-crop {
-	margin-top: 22px;
-	text-align: center;
-	font-size: 16px;
-}
-
-.view-crop a {
-	text-decoration: none;
-	color: #2E7D32;
-	font-weight: 700;
-}
-
-.view-crop a:hover {
-	text-decoration: underline;
-}
-
-/*=========================
-    INFO BOX
+        INFO BOX
 =========================*/
 .info-box {
-	margin-top: 25px;
+	margin-top: 22px;
 	padding: 18px;
+	border-radius: 12px;
 	background: #F6FFF6;
 	border: 1px solid #C8E6C9;
-	border-radius: 12px;
+	color: #2E7D32;
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 10px;
 	font-size: 15px;
-	color: #2E7D32;
 }
 
 .info-box i {
 	font-size: 22px;
 }
-
 /*==============================
         TOAST MESSAGE
 ==============================*/
@@ -222,7 +200,7 @@ button:hover {
 	left: 50%;
 	transform: translate(-50%, -40px);
 	min-width: 420px;
-	max-width: 600px;
+	max-width: 650px;
 	padding: 18px 30px;
 	border-radius: 15px;
 	display: flex;
@@ -259,9 +237,9 @@ button:hover {
 <body>
 
 	<%
-	String success = (String) request.getAttribute("success");
-	String error = (String) request.getAttribute("error");
-	%>
+String success=(String)request.getAttribute("success");
+String error=(String)request.getAttribute("error");
+%>
 
 	<div class="container">
 
@@ -271,86 +249,118 @@ button:hover {
 
 			<h1>Upload Crop 🌾</h1>
 
-			<p>Fill in your crop details so APMC owners can view and request
-				your crops.</p>
+			<p>Fill in your crop details so APMC owners can discover and
+				request your produce.</p>
 
 			<div class="form-box">
 
 				<form action="UploadCrop" method="post">
 
-					<!-- Crop Name -->
+    <!-- Select Crop -->
 
-					<div class="input-box">
+<div class="input-box">
 
-						<label>Crop Name</label> <i class="fa-solid fa-seedling"></i> <input
-							type="text" name="name" placeholder="Enter Crop Name" required>
+<label>Select Crop</label>
 
-					</div>
+<i class="fa-solid fa-seedling"></i>
 
-					<!-- Category -->
+<select name="crop_id" required>
 
-					<div class="input-box">
+    <option value="">Select Crop</option>
 
-						<label>Category</label> <i class="fa-solid fa-layer-group"></i> <select
-							name="category" required>
+    <option value="1">Tomato</option>
 
-							<option value="">Select Category</option>
+    <option value="2">Onion</option>
 
-							<option value="Vegetable">Vegetable</option>
+    <option value="3">Rice</option>
 
-							<option value="Fruit">Fruit</option>
+    <option value="4">Potato</option>
 
-							<option value="Grain">Grain</option>
+    <option value="5">Wheat</option>
 
-							<option value="Pulse">Pulse</option>
+</select>
 
-							<option value="Spice">Spice</option>
+</div>
 
-							<option value="Flower">Flower</option>
+    <!-- Quantity -->
 
-						</select>
+<div class="input-box">
 
-					</div>
+<label>Quantity (Kg)</label>
 
-					<!-- Season -->
+<i class="fa-solid fa-weight-hanging"></i>
 
-					<div class="input-box">
+<input
+type="number"
+step="0.01"
+name="quantity"
+placeholder="Enter Quantity"
+required>
 
-						<label>Season</label> <i class="fa-solid fa-cloud-sun"></i> <select
-							name="season" required>
+</div>
 
-							<option value="">Select Season</option>
+<!-- Price -->
 
-							<option value="Kharif">Kharif</option>
+<div class="input-box">
 
-							<option value="Rabi">Rabi</option>
+<label>Price Per Kg (₹)</label>
 
-							<option value="Zaid">Zaid</option>
+<i class="fa-solid fa-indian-rupee-sign"></i>
 
-						</select>
+<input
+type="number"
+step="0.01"
+name="price"
+placeholder="Enter Price Per Kg"
+required>
 
-					</div>
+</div>
 
-					<!-- Upload Button -->
+<!-- Harvest Date -->
 
-					<button type="submit">
+<div class="input-box">
 
-						<i class="fa-solid fa-cloud-arrow-up"></i> &nbsp; Upload Crop
+<label>Harvest Date</label>
 
-					</button>
+<i class="fa-solid fa-calendar-days"></i>
 
-				</form>
+<input
+type="date"
+name="harvestDate"
+required>
 
-				<div class="view-crop">
+</div>
 
-					Already uploaded crops? <a href="MyCrops.jsp"> View My Crops </a>
+<!-- Status -->
 
-				</div>
+<div class="input-box">
+
+<label>Status</label>
+
+<i class="fa-solid fa-circle-check"></i>
+
+<select name="status" required>
+
+    <option value="Available">Available</option>
+
+    <option value="Sold">Sold</option>
+
+</select>
+
+</div>
+
+    <button type="submit">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        Upload Crop
+    </button>
+
+</form>
 
 				<div class="info-box">
 
-					<i class="fa-solid fa-circle-info"></i> Once uploaded, your crop
-					will be visible to APMC owners for purchase requests.
+					<i class="fa-solid fa-circle-info"></i> Your uploaded crop will be
+					visible to APMC owners. They can send purchase requests based on
+					your listing.
 
 				</div>
 
@@ -358,18 +368,18 @@ button:hover {
 
 		</div>
 
-		<!-- Right Section -->
+		<!-- Right Side -->
 
 		<div class="right">
 
-			<img src="uploadcrop.png" alt="Upload Crop">
+			<img src="images/uploadcrop.png" alt="Upload Crop">
 
 		</div>
 
 	</div>
 	<%
-	if (success != null) {
-	%>
+if(success != null){
+%>
 
 	<div id="toast" class="toast success">
 
@@ -380,8 +390,9 @@ button:hover {
 	</div>
 
 	<%
-	} else if (error != null) {
-	%>
+}
+else if(error != null){
+%>
 
 	<div id="toast" class="toast error">
 
@@ -392,31 +403,33 @@ button:hover {
 	</div>
 
 	<%
-	}
-	%>
+}
+%>
 	<script>
-		window.onload = function() {
 
-			const toast = document.getElementById("toast");
+window.onload=function(){
 
-			if (toast) {
+    const toast=document.getElementById("toast");
 
-				setTimeout(function() {
+    if(toast){
 
-					toast.classList.add("show");
+        setTimeout(function(){
 
-				}, 100);
+            toast.classList.add("show");
 
-				setTimeout(function() {
+        },100);
 
-					toast.classList.remove("show");
+        setTimeout(function(){
 
-				}, 3000);
+            toast.classList.remove("show");
 
-			}
+        },3000);
 
-		}
-	</script>
+    }
+
+}
+
+</script>
 </body>
 
 </html>

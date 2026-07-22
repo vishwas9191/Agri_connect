@@ -67,30 +67,48 @@ public class FarmerImpl implements FarmerDao{
 	}
 	@Override
 	public Farmer findbymailandpassword(String email, String password) {
-		Farmer f= null;
-		String query="select*from farmer where email=? and password=?";
-		try {
-			PreparedStatement ps= con.prepareStatement(query);
-		ps.setString(1, email);
-		ps.setString(2, password);
-		ResultSet rs=ps.executeQuery();
-		while(rs.next()) {
-			f=new Farmer();
-			// id removed
-		    f.setName(rs.getString("name"));
-		    f.setPhone(rs.getString("phone"));
-		    f.setVillage(rs.getString("village"));
-		    f.setDistrict(rs.getString("district"));
-		    f.setState(rs.getString("state"));
-		    f.setRole(rs.getString("role"));
-		    
-		}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return f;
+
+	    Farmer f = null;
+
+	    String query = "SELECT * FROM farmer WHERE email=? AND password=?";
+
+	    try {
+
+	        PreparedStatement ps = con.prepareStatement(query);
+
+	        ps.setString(1, email);
+	        ps.setString(2, password);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        if (rs.next()) {
+
+	            f = new Farmer();
+
+	            f.setFarmer_id(rs.getInt("farmer_id"));   // ⭐ MOST IMPORTANT
+
+	            f.setName(rs.getString("name"));
+
+	            f.setPhone(rs.getString("phone"));
+
+	            f.setEmail(rs.getString("email"));
+
+	            f.setPassword(rs.getString("password"));
+
+	            f.setVillage(rs.getString("village"));
+
+	            f.setDistrict(rs.getString("district"));
+
+	            f.setState(rs.getString("state"));
+
+	            f.setRole(rs.getString("role"));
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return f;
 	}
 	@Override
 	public void updateFarmer(Farmer f) {

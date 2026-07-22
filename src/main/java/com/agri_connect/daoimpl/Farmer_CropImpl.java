@@ -19,7 +19,7 @@ public class Farmer_CropImpl implements Farmer_CropDao{
 
 	@Override
 	public void addFarmerCrop(Farmer_Crop fc) {
-		  String query = "insert into farmer_crop values(0,?,?,?,?,?,?)";
+		String query = "INSERT INTO farmer_crop(farmer_id,crop_id,quantity,price_per_kg,harvest_date,status) VALUES(?,?,?,?,?,?)";
 		  
 		  try {
 			PreparedStatement ps = con.prepareStatement(query);
@@ -29,8 +29,8 @@ public class Farmer_CropImpl implements Farmer_CropDao{
 	           ps.setDouble(4, fc.getPrice());
 	            ps.setDate(5, fc.getHarvested());
 	            ps.setString(6, fc.getStatus());
-
-	            ps.executeUpdate();
+	            int rows = ps.executeUpdate();
+	            System.out.println("Rows Inserted = " + rows);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +50,7 @@ public class Farmer_CropImpl implements Farmer_CropDao{
 	            ps.setDouble(4, fc.getPrice());
 	            ps.setDate(5, fc.getHarvested());
 	            ps.setString(6, fc.getStatus());
-	            ps.setInt(7, fc.getCrop_id());
+	            ps.setInt(7, fc.getFramer_crop_id());
 
 	            ps.executeUpdate();
 		} catch (SQLException e) {
@@ -91,11 +91,11 @@ public class Farmer_CropImpl implements Farmer_CropDao{
 
 	                fc = new Farmer_Crop();
 
-	                fc.setCrop_id(farmerCropId);
+	                fc.setFramer_crop_id(rs.getInt("farmer_crop_id"));
 	                fc.setFarmer_id(rs.getInt("farmer_id"));
 	                fc.setCrop_id(rs.getInt("crop_id"));
 	                fc.setQuantity(rs.getDouble("quantity"));
-	                fc.setPrice(rs.getDouble("price"));
+	                fc.setFramer_crop_id(rs.getInt("farmer_crop_id"));
 	                fc.setHarvested(rs.getDate("harvest_date"));
 	                fc.setStatus(rs.getString("status"));
 
